@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --G100: #cceee9;
+  --G200: #99ddd3;
+  --G300: #66cbbd;
+  --G400: #33baa7;
+  --G500: #00a991;
+  --G600: #008774;
+  --G700: #006557;
+  --G800: #00443a;
+  --G900: #00221d;
+
+  --B100: #d9e8f9;
+  --B200: #b3d1f3;
+  --B300: #8db9ec;
+  --B400: #67a2e6;
+  --B500: #418be0;
+  --B600: #346fb3;
+  --B700: #275386;
+  --B800: #1a385a;
+  --B900: #0d1c2d;
+
+  --N100: #e6e6e6;
+  --N200: #cccccc;
+  --N300: #b3b3b3;
+  --N400: #999999;
+  --N500: #7f7f7f;
+  --N600: #666666;
+  --N700: #4d4d4d;
+  --N800: #333333;
+  --N900: #1a1a1a;
+
+  --success: #00ff00;
+  --danger: #ff0000;
+
+  --font-liches: 'Staatliches', sans-serif;
+  --font-reenie: 'Reenie Beanie', cursive;
+  --font-manrope: 'Manrope', sans-serif;
+  --font-dance: 'Dancing Script', cursive;
+  --font-henny: 'Henny Penny', system-ui;
+  --font-daughter: 'Architects Daughter', cursive;
+
+  --lineheight-base: 16px;
+  --lineheight-md: 24px;
+  --lineheight-lg: 32px;
+  --lineheight-xl: 49px;
+  --lineheight-2xl: 48px;
+  --lineheight-3xl: 64px;
+  --lineheight-4xl: 64px;
+  --lineheight-5xl: 72px;
+  --lineheight-6xl: 80px;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-lg: 24px;
+  --text-xl: 32px;
+  --text-2xl: 40px;
+  --text-3xl: 48px;
+  --text-4xl: 64px;
+  --text-5xl: 72px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--B500);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scroll-trek::-webkit-scrollbar-thumb {
+  background: var(--N200);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--G500);
+  border-radius: 6px;
+  border: 2px solid #f0f0f0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--G700);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+  line-height: 2;
+}
+
+
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+
+html {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  overflow: overlay;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--B500) #f1f1f1;
+  /* Lenis smooth scrolling */
+  overflow-x: hidden;
+}
+
+/* Lenis smooth scrolling styles */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text);
+}
+p {
+  font-family: 'Manrope', sans-serif !important;
+}
+/* font */
+.reenie-beanie {
+  font-family: 'Reenie Beanie';
+}
+
+.font-daughter *,
+.font-daughter *:before,
+.font-daughter *:after {
+  font-family: 'Architects Daughter', cursive !important;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.splash-heading {
+  font-size: clamp(34px, 6vw, 72px);
+}
+
+.tour_splash_heading {
+  font-size: clamp(34px, 6vw, 64px);
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.custom-rich-content img {
+  border-radius: 0.375rem;
+}
+
+.custom-rich-content p {
+  font-family: 'Manrope', sans-serif;
+}
+
+.test {
+  border: 1px solid black;
+}
+
+.testw {
+  border: 1px solid white;
+}
+
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}

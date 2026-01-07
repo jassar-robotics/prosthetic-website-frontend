@@ -1,0 +1,59 @@
+name: DEPLOY TO PROJECT_NAME STAGING
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Create .env file
+        run: |
+          touch .env
+          echo "VITE_BASE_API_URL=${{ secrets.VITE_BASE_API_URL }}" >> .env
+          echo "VITE_BASE_MEDIA_URL=${{ secrets.VITE_BASE_MEDIA_URL }}" >> .env
+          echo "VITE_GOOGLE_SITE_KEY=${{ secrets.VITE_GOOGLE_SITE_KEY }}" >> .env
+          echo "VITE_CLOUDINARY_BASE_MEDIA_URL=${{ secrets.VITE_CLOUDINARY_BASE_MEDIA_URL }}" >> .env
+          echo "VITE_CLOUDINARY_BASE_SPLASH_VIDEO_URL=${{ secrets.VITE_CLOUDINARY_BASE_SPLASH_VIDEO_URL }}" >> .env
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Setup SSH and Deploy via rsync
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+        run: |
+          LIVE_DIR="/home/$SSH_USERNAME/public_html/"
+
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USERNAME@$SERVER_IP exit
+
+          echo "Deploying dist/ to $LIVE_DIR..."
+          rsync -avz --delete --exclude=".htaccess" -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" dist/ $SSH_USERNAME@$SERVER_IP:$LIVE_DIR
+
+          echo "Deployment complete."

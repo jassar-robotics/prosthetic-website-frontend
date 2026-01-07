@@ -1,0 +1,111 @@
+#root {
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.test {
+  border: 1px solid black;
+}
+
+.bottom_popup {
+  opacity: 0.5;
+  transform: scale(0.5);
+  transition: all 0.6s ease;
+}
+
+.bottom_popup.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.left_popup {
+  animation: left_popup_animation linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes left_popup_animation {
+  from {
+    opacity: 0.5;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.bottom_left_popup {
+  animation: bottom_left_popup_animation linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes bottom_left_popup_animation {
+  from {
+    opacity: 0.5;
+    clip-path: inset(100% 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.right_popup {
+  animation: right_popup_animation linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes right_popup_animation {
+  from {
+    opacity: 0.5;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

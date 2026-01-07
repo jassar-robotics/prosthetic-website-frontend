@@ -1,0 +1,17 @@
+# llms.txt for PROJECT_NAME.com
+
+# Schema Version
+version: 1.0
+
+# Owner
+Owner: PROJECT_NAME Pvt. Ltd.
+Contact: info@PROJECT_NAME.com
+Website: https://www.PROJECT_NAME.com
+
+# PROJECT_NAME Overview
+> PROJECT_NAME is a ......
+
+## Key Features
+**XYZ  
+
+# Important Trek Pages
