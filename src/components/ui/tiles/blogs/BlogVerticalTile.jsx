@@ -39,7 +39,7 @@ const BlogVerticalTile = () => {
         )}
         <div
           className="absolute bg-G400 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
-          onClick={() => copy('https://PROJECT_NAME.com/blog/' + data?.slug)}
+          onClick={() => copy('https://PROSTHETICS.com/blog/' + data?.slug)}
         >
           <IoMdShare className="size-3.5" />
           Share

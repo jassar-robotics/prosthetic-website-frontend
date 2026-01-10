@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 import fetch from 'node-fetch';
 
-const baseUrl = 'https://PROJECT_NAME.com';
+const baseUrl = 'https://PROSTHETICS.com';
 
 const staticRoutes = [
   '/',
@@ -13,9 +13,9 @@ const staticRoutes = [
 async function getDynamicUrls() {
   try {
     const [xRes, yRes, zRes] = await Promise.all([
-      fetch('https://api.PROJECT_NAME.com/api/x/all/'),
-      fetch('https://api.PROJECT_NAME.com/api/y/all/'),
-      fetch('https://api.PROJECT_NAME.com/api/z/unhidden/'),
+      fetch('https://api.PROSTHETICS.com/api/x/all/'),
+      fetch('https://api.PROSTHETICS.com/api/y/all/'),
+      fetch('https://api.PROSTHETICS.com/api/z/unhidden/'),
     ]);
 
     const [xData, yData, zData] = await Promise.all([

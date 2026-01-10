@@ -1,15 +1,15 @@
-# llms.txt for PROJECT_NAME.com
+# llms.txt for PROSTHETICS.com
 
 # Schema Version
 version: 1.0
 
 # Owner
-Owner: PROJECT_NAME Pvt. Ltd.
-Contact: info@PROJECT_NAME.com
-Website: https://www.PROJECT_NAME.com
+Owner: PROSTHETICS Pvt. Ltd.
+Contact: info@PROSTHETICS.com
+Website: https://www.PROSTHETICS.com
 
-# PROJECT_NAME Overview
-> PROJECT_NAME is a ......
+# PROSTHETICS Overview
+> PROSTHETICS is a ......
 
 ## Key Features
 **XYZ  

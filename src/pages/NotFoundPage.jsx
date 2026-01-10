@@ -12,7 +12,7 @@ function NotFound() {
       <SEOMeta
         title="Page Not Found | Hello Trekkers"
         description="Oops! The page you are looking for is missing. Browse our treks and tours to find your next adventure."
-        canonical="https://PROJECT_NAME.com"
+        canonical="https://PROSTHETICS.com"
       />
       <PageConatiner>
         <div className="flex   flex-col  w-full items-center space-y-4 mt-10 gap-2">

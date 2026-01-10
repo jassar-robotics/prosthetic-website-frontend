@@ -1,4 +1,4 @@
-name: DEPLOY TO PROJECT_NAME STAGING
+name: DEPLOY TO PROSTHETICS STAGING
 
 on:
   workflow_dispatch:

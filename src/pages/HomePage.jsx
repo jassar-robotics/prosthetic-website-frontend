@@ -5,9 +5,9 @@ function HomePage() {
   return (
     <>
       <SEOMeta
-        title="Page Not Found | PROJECT_NAME"
+        title="Page Not Found | PROSTHETICS"
         description="Oops! The page you are looking for is missing. Browse our treks and tours to find your next adventure."
-        canonical="https://PROJECT_NAME.com"
+        canonical="https://PROSTHETICS.com"
       />
       <PageConatiner>
         Home Page

@@ -4,7 +4,7 @@ function SeoMeta({
   description,
   canonical,
   keywords = '',
-  image = 'https://PROJECT_NAME.com/image.webp',
+  image = 'https://PROSTHETICS.com/image.webp',
 }) {
   return (
     <>
@@ -19,12 +19,12 @@ function SeoMeta({
           <meta property="og:description" content={description} />
           <meta property="og:url" content={canonical} />
           <meta property="og:type" content="article" />
-          <meta property="og:image" content={image || 'https://PROJECT_NAME.com/image.webp'} />
+          <meta property="og:image" content={image || 'https://PROSTHETICS.com/image.webp'} />
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={image || 'https://PROJECT_NAME.com/image.webp'} />
+          <meta name="twitter:image" content={image || 'https://PROSTHETICS.com/image.webp'} />
         </>
       ) : (
         <meta name="robots" content="noindex, nofollow" />

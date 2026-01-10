@@ -1,4 +1,4 @@
-name: DEPLOY TO PROJECT_NAME STAGING
+name: DEPLOY TO PROSTHETICS STAGING
 
 on:
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SERVER_IP: ${{ secrets.SERVER_IP }}
         run: |
-          LIVE_DIR="/home/$SSH_USERNAME/staging.PROJECT_NAME.com/"
+          LIVE_DIR="/home/$SSH_USERNAME/staging.PROSTHETICS.com/"
 
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
