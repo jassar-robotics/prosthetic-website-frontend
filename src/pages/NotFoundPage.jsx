@@ -1,36 +1,36 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Home, ArrowLeft } from "lucide-react";
 
-import PageConatiner from '@/components/layouts/PageContainer.jsx';
-import NotFoundLottie from '@/data/404.json';
-import Lottie from 'lottie-react';
-
-import SEOMeta from '@/components/layouts/SEOMeta.jsx';
-
-function NotFound() {
+export default function NotFoundPage() {
   return (
-    <>
-      <SEOMeta
-        title="Page Not Found | Hello Trekkers"
-        description="Oops! The page you are looking for is missing. Browse our treks and tours to find your next adventure."
-        canonical="https://PROSTHETICS.com"
-      />
-      <PageConatiner>
-        <div className="flex   flex-col  w-full items-center space-y-4 mt-10 gap-2">
-          <div className="min-w-64 max-w-64 aspect-square">
-            <Lottie animationData={NotFoundLottie} className="w-full h-full" loop={true} />
-          </div>
+    <div className="min-h-screen bg-zinc-950 flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.04)_0%,_transparent_50%)]" />
 
-          <div className="font-liches">are you lost?!</div>
+      <div className="relative text-center px-4">
+        <div className="text-[10rem] font-bold leading-none text-zinc-900 select-none mb-4">
+          404
+        </div>
+        <h1 className="text-2xl font-bold text-white mb-3 -mt-12">
+          Page not found
+        </h1>
+        <p className="text-zinc-500 mb-8 max-w-md mx-auto">
+          The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/"
-            className="text-G300 text-sm text-white font-medium rounded-md hover:bg-transparent hover:text-B500 border border-B500 transition-colors duration-500 py-2 px-3 bg-B500"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 font-bold rounded-xl hover:shadow-xl hover:shadow-amber-500/20 transition-all"
           >
-            Home Page
+            <Home className="w-4 h-4" /> Go Home
           </Link>
+          <button
+            onClick={() => window.history.back()}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-800 text-white font-semibold rounded-xl hover:border-zinc-700 transition-all"
+          >
+            <ArrowLeft className="w-4 h-4" /> Go Back
+          </button>
         </div>
-      </PageConatiner>
-    </>
+      </div>
+    </div>
   );
 }
-
-export default NotFound;

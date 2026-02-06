@@ -7,7 +7,7 @@ import { createBrowserRouter } from 'react-router-dom';
 const SuspenseWrapper = ({ children }) => (
   <Suspense
     fallback={
-      <div className="p-10 w-full h-[100vh] bg-zinc-950 flex items-center justify-center fixed inset-0 z-50 text-center">
+      <div className="p-10 w-full h-[100vh] bg-white flex items-center justify-center fixed inset-0 z-50 text-center">
         <div className="min-w-80 max-w-80 aspect-square">
           <Lottie animationData={Loader} className="w-full h-full" loop={true} />
         </div>
@@ -19,14 +19,7 @@ const SuspenseWrapper = ({ children }) => (
 );
 
 const Home = lazy(() => import('@/pages/HomePage.jsx'));
-const Projects = lazy(() => import('@/pages/ProjectsPage.jsx'));
-const ProjectDetail = lazy(() => import('@/pages/ProjectDetailPage.jsx'));
-const Contributors = lazy(() => import('@/pages/ContributorsPage.jsx'));
-const About = lazy(() => import('@/pages/AboutUsPage.jsx'));
-const Contact = lazy(() => import('@/pages/ContactUsPage.jsx'));
-const Policies = lazy(() => import('@/pages/PoliciesPage.jsx'));
 const NotFound = lazy(() => import('@/pages/NotFoundPage.jsx'));
-
 const router = createBrowserRouter([
   {
     element: (
@@ -36,12 +29,6 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: '/', element: <Home /> },
-      { path: '/projects', element: <Projects /> },
-      { path: '/projects/:id', element: <ProjectDetail /> },
-      { path: '/contributors', element: <Contributors /> },
-      { path: '/about', element: <About /> },
-      { path: '/contact', element: <Contact /> },
-      { path: '/policies', element: <Policies /> },
       { path: '*', element: <NotFound /> },
     ],
   },
