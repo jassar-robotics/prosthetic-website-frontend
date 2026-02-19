@@ -2,15 +2,14 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, GitBranch } from "lucide-react";
 import StatusBadge from "./StatusBadge";
 
-export default function ProjectCard({ project, index = 0, linkTo }) {
-  // Default link: bridge page (no view param)
-  const to = linkTo || `/projects/${project.id}`;
-
+export default function ProjectCard({ project, index = 0 }) {
   return (
     <Link
-      to={to}
+      to={`/projects/${project.id}`}
       className="group relative block rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/5"
-      style={{ animationDelay: `${index * 100}ms` }}
+      style={{
+        animationDelay: `${index * 100}ms`,
+      }}
     >
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden">

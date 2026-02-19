@@ -120,7 +120,6 @@ export default function HomePage() {
             {/* Right: Visual */}
             <AnimatedSection delay={200} direction="left">
               <div className="relative hidden lg:block">
-                {/* Main image */}
                 <div className="relative rounded-3xl overflow-hidden border border-zinc-800/50 shadow-2xl shadow-black/40">
                   <img
                     src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
@@ -129,7 +128,6 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
 
-                  {/* Floating label */}
                   <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3 p-4 rounded-2xl bg-zinc-950/80 backdrop-blur-xl border border-zinc-800/50">
                     <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center shrink-0">
                       <Hand className="w-5 h-5 text-amber-400" />
@@ -149,7 +147,6 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Decorative elements */}
                 <div className="absolute -top-6 -right-6 w-24 h-24 rounded-2xl border border-amber-500/10 rotate-12" />
                 <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-xl bg-amber-500/5 border border-amber-500/10" />
               </div>
@@ -216,13 +213,13 @@ export default function HomePage() {
               },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 80}>
-                <div className="group relative h-full p-6 rounded-2xl bg-zinc-900/50 border  border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-500">
+                <div className="group relative h-full p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700/50 transition-all duration-500">
                   <div
-                    className={`w-11 h-11 m-auto rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 shadow-lg opacity-90`}
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 shadow-lg opacity-90`}
                   >
                     <item.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-base  text-white mb-2">
+                  <h3 className="text-base font-bold text-white mb-2">
                     {item.title}
                   </h3>
                   <p className="text-sm text-zinc-500 leading-relaxed">
@@ -235,7 +232,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== HOW IT WORKS - USER PATHS ===== */}
+      {/* ===== TWO PATHS ===== */}
       <section className="relative py-24 md:py-32 bg-zinc-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -245,19 +242,19 @@ export default function HomePage() {
           />
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Maker path */}
+            {/* Maker path → /projects?view=maker (no UPCOMING, direct to maker view) */}
             <AnimatedSection delay={0}>
               <div className="group relative h-full p-8 rounded-3xl bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500 overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl translate-x-12 -translate-y-12 group-hover:bg-amber-500/10 transition-colors duration-700" />
 
-                <div className="relative flex flex-col justify-start items-start">
+                <div className="relative">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
                     <Hand className="w-7 h-7 text-zinc-950" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">
                     I'm a Maker
                   </h3>
-                  <p className="text-zinc-500 leading-relaxed mb-6 text-left">
+                  <p className="text-zinc-500 leading-relaxed mb-6">
                     Browse finished projects with complete assembly guides,
                     BOMs, and manuals. Download the files, gather parts, and
                     build a prosthetic hand at home or in a makerspace.
@@ -276,7 +273,7 @@ export default function HomePage() {
                     ))}
                   </ul>
                   <Link
-                    to="/projects"
+                    to="/projects?view=maker"
                     className="inline-flex items-center gap-2 text-amber-400 font-semibold text-sm hover:gap-3 transition-all duration-300"
                   >
                     Browse Projects <ArrowRight className="w-4 h-4" />
@@ -285,19 +282,19 @@ export default function HomePage() {
               </div>
             </AnimatedSection>
 
-            {/* Contributor path */}
+            {/* Contributor path → /contributors (has project listing + contributor profiles) */}
             <AnimatedSection delay={150}>
               <div className="group relative h-full p-8 rounded-3xl bg-zinc-900 border border-zinc-800/50 hover:border-emerald-500/20 transition-all duration-500 overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl translate-x-12 -translate-y-12 group-hover:bg-emerald-500/10 transition-colors duration-700" />
 
-                <div className="relative flex flex-col justify-start items-start">
-                  <div className="w-14 h-14  rounded-2xl bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
+                <div className="relative">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
                     <Users className="w-7 h-7 text-zinc-950" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">
                     I'm a Contributor
                   </h3>
-                  <p className="text-zinc-500 text-left leading-relaxed mb-6">
+                  <p className="text-zinc-500 leading-relaxed mb-6">
                     Join ongoing projects — improve mechanical designs, write
                     firmware, design circuits, or help with documentation. Your
                     work gets credited and your edits go live after review.
@@ -340,6 +337,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {featuredProjects.map((project, i) => (
               <AnimatedSection key={project.id} delay={i * 100}>
+                {/* From homepage, go to bridge page (let user pick perspective) */}
                 <ProjectCard project={project} index={i} />
               </AnimatedSection>
             ))}
@@ -371,15 +369,16 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             {stories.map((story, i) => (
               <AnimatedSection key={story.id} delay={i * 100}>
-                <div className="group relative h-full p-6 rounded-2xl bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500 flex flex-col items-center">
-                  
-                  <h3 className="text-lg font-bold text-white">
-                    {story.name}
-                  </h3>
-
-                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider  mb-3">
+                <div className="group relative h-full p-6 rounded-2xl bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-lg">🌍</span>
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
                       {story.country}
                     </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-3">
+                    {story.name}
+                  </h3>
                   <div
                     className="text-sm text-zinc-500 leading-relaxed"
                     dangerouslySetInnerHTML={{
