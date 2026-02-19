@@ -60,18 +60,18 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  {isActive && (
+                  {/* {isActive && (
                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-amber-400" />
-                  )}
+                  )} */}
                 </Link>
               );
             })}
-            <Link
+            {/* <Link
               to="/projects"
               className="ml-4 px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 rounded-xl hover:shadow-lg hover:shadow-amber-500/25 active:scale-95 transition-all duration-300"
             >
               Start Building
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile toggle */}
@@ -107,12 +107,12 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link
+          {/* <Link
             to="/projects"
             className="block mt-3 px-4 py-3 text-sm font-semibold bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 rounded-xl text-center"
           >
             Start Building
-          </Link>
+          </Link> */}
         </div>
       </div>
     </nav>

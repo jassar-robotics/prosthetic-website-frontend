@@ -4,7 +4,7 @@ import StatusBadge from "./StatusBadge";
 
 export default function ProjectCard({ project, index = 0, linkTo }) {
   // Default link: bridge page (no view param)
-  const to = linkTo || `/projects/${project.id}`;
+  const to = linkTo || `/projects/${project.B}`;
 
   return (
     <Link
@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index = 0, linkTo }) {
         </div>
 
         <div
-          className="text-sm text-zinc-500 leading-relaxed line-clamp-2 mb-4"
+          className="text-sm text-zinc-500 leading-relaxed line-clamp-2 mb-4 text-left"
           dangerouslySetInnerHTML={{
             __html: project.description?.replace(/<[^>]*>/g, "") || "",
           }}

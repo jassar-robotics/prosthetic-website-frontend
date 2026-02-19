@@ -48,33 +48,25 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text */}
             <div>
-              <AnimatedSection>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
-                    Open Source Prosthetics
-                  </span>
-                </div>
-              </AnimatedSection>
 
               <AnimatedSection delay={100}>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+                <h1 className=" font-liches text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 text-left">
                   A hand that{" "}
                   <span className="relative">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400">
+                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400  font-liches">
                       grows
                     </span>
-                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-amber-400/10 rounded-full -z-0" />
+                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-amber-400/10 rounded-full -z-0  font-liches" />
                   </span>{" "}
                   with you.
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection delay={200}>
-                <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-lg">
+                <p className="text-lg text-zinc-400 leading-relaxed mb-10 max-w-lg font-liches text-left">
                   An open, modular prosthetic hand that can be built, repaired,
                   and improved by anyone with basic tools and a 3D printer. Not a
-                  product — a shared process.
+                  product - a shared process.
                 </p>
               </AnimatedSection>
 
@@ -141,7 +133,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <span className="ml-auto flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                     
                       ONGOING
                     </span>
                   </div>
@@ -178,7 +170,7 @@ export default function HomePage() {
               {
                 icon: Wrench,
                 title: "Modular & Repairable",
-                desc: "Every part is replaceable. Swap a finger, replace a servo, adjust the fit — all documented with step-by-step guides.",
+                desc: "Every part is replaceable. Swap a finger, replace a servo, adjust the fit - all documented with step-by-step guides.",
                 color: "from-blue-500 to-cyan-500",
               },
               {
@@ -219,10 +211,10 @@ export default function HomePage() {
                   >
                     <item.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">
+                  <h3 className="text-base font-bold text-white mb-2 text-left">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed">
+                  <p className="text-sm text-zinc-500 leading-relaxed text-left">
                     {item.desc}
                   </p>
                 </div>
@@ -247,14 +239,14 @@ export default function HomePage() {
               <div className="group relative h-full p-8 rounded-3xl bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500 overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl translate-x-12 -translate-y-12 group-hover:bg-amber-500/10 transition-colors duration-700" />
 
-                <div className="relative">
+                <div className="relative flex flex-col ">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
                     <Hand className="w-7 h-7 text-zinc-950" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3 font-liches text-left">
                     I'm a Maker
                   </h3>
-                  <p className="text-zinc-500 leading-relaxed mb-6">
+                  <p className="text-zinc-500 leading-relaxed mb-6 text-left">
                     Browse finished projects with complete assembly guides,
                     BOMs, and manuals. Download the files, gather parts, and
                     build a prosthetic hand at home or in a makerspace.
@@ -274,7 +266,7 @@ export default function HomePage() {
                   </ul>
                   <Link
                     to="/projects?view=maker"
-                    className="inline-flex items-center gap-2 text-amber-400 font-semibold text-sm hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-amber-400 font-semibold text-sm hover:gap-3 transition-all duration-300 text-left"
                   >
                     Browse Projects <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -287,15 +279,15 @@ export default function HomePage() {
               <div className="group relative h-full p-8 rounded-3xl bg-zinc-900 border border-zinc-800/50 hover:border-emerald-500/20 transition-all duration-500 overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl translate-x-12 -translate-y-12 group-hover:bg-emerald-500/10 transition-colors duration-700" />
 
-                <div className="relative">
+                <div className="relative flex flex-col ">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
                     <Users className="w-7 h-7 text-zinc-950" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3 text-left">
                     I'm a Contributor
                   </h3>
-                  <p className="text-zinc-500 leading-relaxed mb-6">
-                    Join ongoing projects — improve mechanical designs, write
+                  <p className="text-zinc-500 leading-relaxed mb-6 text-left">
+                    Join ongoing projects - improve mechanical designs, write
                     firmware, design circuits, or help with documentation. Your
                     work gets credited and your edits go live after review.
                   </p>
@@ -314,7 +306,7 @@ export default function HomePage() {
                   </ul>
                   <Link
                     to="/contributors"
-                    className="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm hover:gap-3 transition-all duration-300 "
                   >
                     See Contributors <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -337,7 +329,6 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {featuredProjects.map((project, i) => (
               <AnimatedSection key={project.id} delay={i * 100}>
-                {/* From homepage, go to bridge page (let user pick perspective) */}
                 <ProjectCard project={project} index={i} />
               </AnimatedSection>
             ))}
@@ -363,7 +354,7 @@ export default function HomePage() {
           <SectionHeader
             label="Impact"
             title="Real stories. Real hands."
-            description="These aren't marketing testimonials — they're documented cases of how open-source prosthetics change lives."
+            description="These aren't marketing testimonials - they're documented cases of how open-source prosthetics change lives."
           />
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -439,7 +430,7 @@ export default function HomePage() {
           <AnimatedSection delay={200}>
             <p className="text-lg text-zinc-400 mb-10 leading-relaxed">
               Whether you design a better finger joint, fix a wiring diagram, or
-              translate a manual into your language — you're helping someone
+              translate a manual into your language - you're helping someone
               regain independence.
             </p>
           </AnimatedSection>

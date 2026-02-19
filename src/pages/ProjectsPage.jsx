@@ -58,7 +58,7 @@ export default function ProjectsPage() {
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20">
                   <span className="w-2 h-2 rounded-full bg-amber-400" />
                   <span className="text-xs font-semibold text-amber-400">
-                    Maker Mode — Only buildable projects shown
+                    Maker Mode - Only buildable projects shown
                   </span>
                 </div>
               </div>

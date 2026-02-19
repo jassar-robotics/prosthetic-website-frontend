@@ -100,6 +100,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        liches: ['Staatliches', 'sans-serif'],
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Outfit', 'system-ui', 'sans-serif'],
       },

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Home, ArrowLeft } from "lucide-react";
+import Lottie from "lottie-react";
+import CatAnimation from "@/data/Cat.json";
 
 export default function NotFoundPage() {
   return (
@@ -7,10 +9,14 @@ export default function NotFoundPage() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.04)_0%,_transparent_50%)]" />
 
       <div className="relative text-center px-4">
-        <div className="text-[10rem] font-bold leading-none text-zinc-900 select-none mb-4">
+        <div className="w-64 h-64 mx-auto mb-2">
+          <Lottie animationData={CatAnimation} className="w-full h-full" loop={true} />
+        </div>
+
+        <div className="text-6xl font-bold text-zinc-800 select-none mb-3">
           404
         </div>
-        <h1 className="text-2xl font-bold text-white mb-3 -mt-12">
+        <h1 className="text-2xl font-bold text-white mb-3">
           Page not found
         </h1>
         <p className="text-zinc-500 mb-8 max-w-md mx-auto">

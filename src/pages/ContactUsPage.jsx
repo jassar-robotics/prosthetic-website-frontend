@@ -88,10 +88,10 @@ export default function ContactUsPage() {
             {/* Sponsorship note */}
             <AnimatedSection delay={300}>
               <div className="p-6 rounded-2xl bg-amber-400/5 border border-amber-400/10">
-                <h4 className="font-bold text-amber-400 mb-2">
+                <h4 className="font-bold text-amber-400 mb-2 text-left">
                   Sponsorships & Grants
                 </h4>
-                <p className="text-sm text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-400 leading-relaxed text-left">
                   If you represent an organization interested in sponsoring,
                   donating, or providing grants for open-source assistive
                   technology, please reach out. We're always looking for

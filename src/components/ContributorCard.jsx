@@ -1,4 +1,5 @@
-import { Wrench, Cpu, Code, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Wrench, Cpu, Code, Users, ArrowUpRight } from "lucide-react";
 
 const typeConfig = {
   MECHANIC: { icon: Wrench, label: "Mechanical", color: "text-blue-400 bg-blue-400/10" },
@@ -12,7 +13,15 @@ export default function ContributorCard({ contributor }) {
   const Icon = config.icon;
 
   return (
-    <div className="group relative rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500 p-6">
+    <Link
+      to={`/contributors/${contributor.id}`}
+      className="group relative  rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500 p-6 flex flex-col"
+    >
+      {/* View profile arrow */}
+      <div className="absolute top-4 right-4 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+        <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
+      </div>
+
       {/* Avatar and info */}
       <div className="flex items-start gap-4 mb-4">
         <div className="relative shrink-0">
@@ -25,11 +34,11 @@ export default function ContributorCard({ contributor }) {
             <Icon className="w-3 h-3" />
           </div>
         </div>
-        <div className="min-w-0 flex flex-col items-start">
-          <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors truncate">
+        <div className="min-w-0 flex flex-col ">
+          <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors truncate text-left">
             {contributor.fullName}
           </h3>
-          <span className={`text-xs text-left font-medium ${config.color.split(" ")[0]}`}>
+          <span className={`text-xs font-medium text-left ${config.color.split(" ")[0]}`}>
             {config.label}
           </span>
         </div>
@@ -37,10 +46,10 @@ export default function ContributorCard({ contributor }) {
 
       {/* Quote */}
       {contributor.quote && (
-        <blockquote className="text-sm text-zinc-500 leading-relaxed italic">
+        <blockquote className="text-sm text-zinc-500 leading-relaxed italic text-left" >
           "{contributor.quote}"
         </blockquote>
       )}
-    </div>
+    </Link>
   );
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Heart,
@@ -9,11 +10,20 @@ import {
   RefreshCw,
   Users,
   BookOpen,
+  ChevronDown,
+  ChevronUp,
+  Github,
+  Linkedin,
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import { coreTeam } from "@/data/dummyData";
 
 export default function AboutUsPage() {
+  const [showAllTeam, setShowAllTeam] = useState(false);
+  const [activePhilosophy, setActivePhilosophy] = useState(null);
+  const displayedTeam = showAllTeam ? coreTeam : coreTeam.slice(0, 6);
+
   return (
     <div className="min-h-screen bg-zinc-950">
       {/* Hero */}
@@ -42,18 +52,18 @@ export default function AboutUsPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={150}>
-            <div>
-              <span className="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-6">
+            <div className="flex flex-col ">
+              <span className="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-6 text-left w-fit">
                 Our Mission
               </span>
-              <h2 className="text-3xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl font-bold text-white mb-6 leading-tight text-left">
                 Prosthetics should not depend on cost, location, or closed supply chains.
               </h2>
               <div className="space-y-4 text-zinc-400 leading-relaxed">
-                <p>
+                <p className="text-left">
                   Many prosthetic hands are expensive, difficult to repair, and tightly locked into proprietary systems. For children, this creates a repeating cycle of replacements, delays, and loss of independence as they grow.
                 </p>
-                <p>
+                <p className="text-left">
                   Our answer is an open, modular hand that can be rebuilt, repaired, and improved by anyone with basic tools and a printer. The goal is not only a device, but a shared process that helps more people build, learn, and regain agency.
                 </p>
               </div>
@@ -76,7 +86,7 @@ export default function AboutUsPage() {
               {
                 icon: Heart,
                 title: "Human-Centered",
-                desc: "Design decisions start with real human use: comfort, natural motion, and everyday tasks. Dignity matters — the hand should feel like support, not a reminder of loss.",
+                desc: "Design decisions start with real human use: comfort, natural motion, and everyday tasks. Dignity matters - the hand should feel like support, not a reminder of loss.",
                 color: "from-rose-500 to-pink-600",
               },
               {
@@ -100,7 +110,7 @@ export default function AboutUsPage() {
               {
                 icon: BookOpen,
                 title: "Document Everything",
-                desc: "Every decision is explained. Every stage is logged. Documentation is not an afterthought — it's a core deliverable.",
+                desc: "Every decision is explained. Every stage is logged. Documentation is not an afterthought - it's a core deliverable.",
                 color: "from-purple-500 to-violet-600",
               },
               {
@@ -113,14 +123,14 @@ export default function AboutUsPage() {
               <AnimatedSection key={item.title} delay={i * 80}>
                 <div className="h-full p-6 rounded-2xl bg-zinc-900 border border-zinc-800/50">
                   <div
-                    className={`w-11 h-11 rounded-xl m-auto bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 shadow-lg`}
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4 shadow-lg`}
                   >
                     <item.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">
+                  <h3 className="text-base font-bold text-white mb-2 text-left">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed">
+                  <p className="text-sm text-zinc-500 leading-relaxed  text-left">
                     {item.desc}
                   </p>
                 </div>
@@ -130,51 +140,238 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* Philosophy of Open Source */}
-      <section id="philosophy" className="py-24">
+      {/* Philosophy of Open Source - Interactive */}
+      <section id="philosophy" className="py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <SectionHeader
-              label="Philosophy"
-              title="The philosophy of open source hardware."
-            />
+          <SectionHeader
+            label="Philosophy"
+            title="What we believe in."
+          />
 
-            <div className="space-y-6">
-              {[
-                {
-                  title: "Knowledge, not money",
-                  text: "We believe the most valuable contribution is knowledge. A better finger joint design, a clearer wiring diagram, a translated manual — these compound over time in ways that donations alone cannot.",
-                },
-                {
-                  title: "Failures are progress",
-                  text: "We document what didn't work as carefully as what did. A failed prototype is a lesson for the next builder. Hiding failures means someone else repeats them.",
-                },
-                {
-                  title: "The next person should have it easier",
-                  text: "Every improvement, every document, every fix should make it easier for the next person. That's the contract. You benefit from those who came before, and you leave something better for those who come after.",
-                },
-                {
-                  title: "Ownership without possession",
-                  text: "When a child outgrows a prosthetic hand, that hand should go to someone else. When a design reaches completion, it belongs to everyone. Open source means the community owns the process.",
-                },
-                {
-                  title: "Build bridges, not walls",
-                  text: "We imagine a future where families, clinicians, students, and makers learn from each other openly. Where improvements are shared, and progress becomes easier for the next person instead of starting from zero.",
-                },
-              ].map((item, i) => (
-                <AnimatedSection key={i} delay={i * 80}>
-                  <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/30">
-                    <h4 className="text-lg font-bold text-white mb-2">
-                      {item.title}
-                    </h4>
-                    <p className="text-zinc-400 leading-relaxed">
-                      {item.text}
-                    </p>
+          {/* Interactive bento grid */}
+          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4 auto-rows-[180px]">
+            {/* 1 - Knowledge, not money (wide) */}
+            <AnimatedSection className="md:col-span-4 lg:col-span-7 row-span-2">
+              <div
+                className="group relative h-full rounded-3xl overflow-hidden cursor-pointer"
+                onClick={() => setActivePhilosophy(activePhilosophy === 0 ? null : 0)}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+                  alt="Knowledge sharing"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 transition-all duration-500 ${activePhilosophy === 0 ? "bg-zinc-950/85" : "bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent group-hover:via-zinc-950/50"}`} />
+                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Lightbulb className="w-5 h-5 text-amber-400" />
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">Core Belief</span>
                   </div>
-                </AnimatedSection>
-              ))}
-            </div>
+                  <h3 className="text-2xl font-bold text-white mb-2 text-left">
+                    Knowledge, not money.
+                  </h3>
+                  <p className={`text-sm text-zinc-300 leading-relaxed max-w-md transition-all duration-500 text-left ${activePhilosophy === 0 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-70 group-hover:translate-y-0"}`}>
+                    A better finger joint design, a clearer wiring diagram, a translated manual - these compound over time in ways that donations alone cannot.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* 2 - Failures are progress (tall right) */}
+            <AnimatedSection delay={100} className="md:col-span-2 lg:col-span-5 row-span-2">
+              <div
+                className="group relative h-full rounded-3xl overflow-hidden cursor-pointer"
+                onClick={() => setActivePhilosophy(activePhilosophy === 1 ? null : 1)}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80"
+                  alt="Iterating on failures"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 transition-all duration-500 ${activePhilosophy === 1 ? "bg-zinc-950/85" : "bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent group-hover:via-zinc-950/50"}`} />
+                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <RefreshCw className="w-4 h-4 text-rose-400" />
+                    <span className="text-xs font-semibold text-rose-400 uppercase tracking-wider">Mindset</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 text-left">
+                    Failures are progress.
+                  </h3>
+                  <p className={`text-sm text-left text-zinc-300 leading-relaxed transition-all duration-500 ${activePhilosophy === 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-70 group-hover:translate-y-0"}`}>
+                    We document what didn't work as carefully as what did. A failed prototype is a lesson for the next builder.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* 3 - Make it easier (bottom left) */}
+            <AnimatedSection delay={200} className="md:col-span-3 lg:col-span-5 row-span-2">
+              <div
+                className="group relative h-full rounded-3xl overflow-hidden cursor-pointer"
+                onClick={() => setActivePhilosophy(activePhilosophy === 2 ? null : 2)}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80"
+                  alt="Helping the next person"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 transition-all duration-500 ${activePhilosophy === 2 ? "bg-zinc-950/85" : "bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent group-hover:via-zinc-950/50"}`} />
+                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Users className="w-4 h-4 text-emerald-400" />
+                    <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Promise</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 text-left">
+                    Leave it easier for the next person.
+                  </h3>
+                  <p className={`text-sm text-left text-zinc-300 leading-relaxed max-w-sm transition-all duration-500 ${activePhilosophy === 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-70 group-hover:translate-y-0"}`}>
+                    You benefit from those who came before. Leave something better for those who come after.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* 4 - Ownership without possession (bottom middle) */}
+            <AnimatedSection delay={250} className="md:col-span-3 lg:col-span-4 row-span-2">
+              <div
+                className="group relative h-full rounded-3xl overflow-hidden cursor-pointer"
+                onClick={() => setActivePhilosophy(activePhilosophy === 3 ? null : 3)}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80"
+                  alt="Shared ownership"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 transition-all duration-500 ${activePhilosophy === 3 ? "bg-zinc-950/85" : "bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent group-hover:via-zinc-950/50"}`} />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Heart className="w-4 h-4 text-purple-400" />
+                    <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">Ethos</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 text-left">
+                    Ownership without possession.
+                  </h3>
+                  <p className={`text-sm text-left text-zinc-300 leading-relaxed transition-all duration-500 ${activePhilosophy === 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-70 group-hover:translate-y-0"}`}>
+                    When a design is complete, it belongs to everyone. Open source means the community owns the process.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* 5 - Build bridges (bottom right) */}
+            <AnimatedSection delay={300} className="md:col-span-6 lg:col-span-3 row-span-2">
+              <div
+                className="group relative h-full rounded-3xl overflow-hidden cursor-pointer"
+                onClick={() => setActivePhilosophy(activePhilosophy === 4 ? null : 4)}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
+                  alt="Building bridges"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className={`absolute inset-0 transition-all duration-500 ${activePhilosophy === 4 ? "bg-zinc-950/85" : "bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent group-hover:via-zinc-950/50"}`} />
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Compass className="w-4 h-4 text-cyan-400" />
+                    <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Vision</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 text-left">
+                    Build bridges, not walls.
+                  </h3>
+                  <p className={`text-sm text-left text-zinc-300 leading-relaxed transition-all duration-500 ${activePhilosophy === 4 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover:opacity-70 group-hover:translate-y-0"}`}>
+                    Where improvements are shared and progress is never starting from zero.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* Core Team */}
+      <section className="py-24 bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            label="Core Team"
+            title="The people driving this forward."
+            description="A small, dedicated team working across continents to make open-source prosthetics a reality."
+          />
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayedTeam.map((member, i) => (
+              <AnimatedSection key={member.id} delay={i * 80}>
+                <div className="group p-6 rounded-2xl bg-zinc-900 border border-zinc-800/50 hover:border-amber-500/20 transition-all duration-500">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-14 h-14 rounded-xl object-cover ring-2 ring-zinc-800 group-hover:ring-amber-500/30 transition-all duration-300"
+                    />
+                    <div className="min-w-0">
+                      <h3 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors truncate text-left">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm text-zinc-500 truncate text-left">
+                        {member.work}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Social links */}
+                  <div className="flex items-center gap-2 pt-4 border-t border-zinc-800/50">
+                    {member.social.x && (
+                      <a
+                        href={member.social.x}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-zinc-800/50 flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800 transition-all"
+                      >
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                      </a>
+                    )}
+                    {member.social.linkedin && (
+                      <a
+                        href={member.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-zinc-800/50 flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800 transition-all"
+                      >
+                        <Linkedin className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                    {member.social.github && (
+                      <a
+                        href={member.social.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-zinc-800/50 flex items-center justify-center text-zinc-500 hover:text-white hover:bg-zinc-800 transition-all"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Toggle */}
+          {coreTeam.length > 6 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAllTeam(!showAllTeam)}
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg hover:text-white hover:border-zinc-700 transition-all"
+              >
+                {showAllTeam ? (
+                  <>Show less <ChevronUp className="w-3.5 h-3.5" /></>
+                ) : (
+                  <>Show {coreTeam.length - 6} more <ChevronDown className="w-3.5 h-3.5" /></>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -186,7 +383,7 @@ export default function AboutUsPage() {
               Ready to be part of this?
             </h2>
             <p className="text-zinc-400 mb-8">
-              Whether you write code, design parts, or translate guides — there's a place for you.
+              Whether you write code, design parts, or translate guides - there's a place for you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

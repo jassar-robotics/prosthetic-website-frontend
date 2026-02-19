@@ -1,4 +1,4 @@
-# OpenHand Frontend — Setup Guide
+# OpenHand Frontend - Setup Guide
 
 ## File Placement
 
@@ -103,8 +103,8 @@ const { data: projects, isLoading } = useQuery({
 ```
 
 2. Your Django endpoints:
-   - `GET /projects/all` — All projects
-   - `GET /projects/:id` — Single project
-   - `GET /contributors/all` — All contributors
+   - `GET /projects/all` - All projects
+   - `GET /projects/:id` - Single project
+   - `GET /contributors/all` - All contributors
 
 3. The data shapes in `dummyData.js` match your Django models exactly, so the transition should be seamless.

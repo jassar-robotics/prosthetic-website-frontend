@@ -54,7 +54,7 @@ export default function ContributorsPage() {
           <SectionHeader
             label="Contributors"
             title="The people behind the hand."
-            description="Every improvement, every fix, every page of documentation — made by someone who cared enough to contribute."
+            description="Every improvement, every fix, every page of documentation - made by someone who cared enough to contribute."
           />
         </div>
       </div>
@@ -69,9 +69,9 @@ export default function ContributorsPage() {
               <h3 className="text-2xl font-bold text-white mb-3">
                 How to contribute
               </h3>
-              <p className="text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-zinc-400 mb-8 max-w-2xl m-auto">
                 We value knowledge over money. Whether you improve a CAD file,
-                fix a wiring diagram, write documentation, or test a prototype —
+                fix a wiring diagram, write documentation, or test a prototype -
                 your contribution matters.
               </p>
 
@@ -111,10 +111,10 @@ export default function ContributorsPage() {
                     >
                       <step.icon className="w-4 h-4 text-white" />
                     </div>
-                    <h4 className="text-sm font-bold text-white mb-1">
+                    <h4 className="text-sm font-bold text-white mb-1 text-left ">
                       {step.title}
                     </h4>
-                    <p className="text-xs text-zinc-500 leading-relaxed">
+                    <p className="text-xs text-zinc-500 leading-relaxed text-left">
                       {step.desc}
                     </p>
                   </div>

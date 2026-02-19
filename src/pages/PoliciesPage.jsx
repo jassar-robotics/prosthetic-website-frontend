@@ -16,11 +16,11 @@ const sections = [
   },
   {
     title: "Data & Privacy",
-    content: `We collect minimal data. Contributor profiles include name, contact information, and contribution type — all provided voluntarily. We do not sell, share, or monetize personal data. Website analytics, if any, are used solely to improve the user experience. If you wish to have your data removed, contact us and we will process the request promptly.`,
+    content: `We collect minimal data. Contributor profiles include name, contact information, and contribution type - all provided voluntarily. We do not sell, share, or monetize personal data. Website analytics, if any, are used solely to improve the user experience. If you wish to have your data removed, contact us and we will process the request promptly.`,
   },
   {
     title: "Community Standards",
-    content: `We expect all participants — contributors, users, and visitors — to engage respectfully and constructively. Harassment, discrimination, and disruptive behavior are not tolerated. We value honest feedback, documented learning, and collaborative improvement. If you witness or experience any violation of these standards, please contact the project maintainers.`,
+    content: `We expect all participants - contributors, users, and visitors - to engage respectfully and constructively. Harassment, discrimination, and disruptive behavior are not tolerated. We value honest feedback, documented learning, and collaborative improvement. If you witness or experience any violation of these standards, please contact the project maintainers.`,
   },
   {
     title: "Sponsorship & Donations",
