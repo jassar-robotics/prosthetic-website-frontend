@@ -90,16 +90,16 @@ export default function HomePage() {
 
               {/* Stats row */}
               <AnimatedSection delay={400}>
-                <div className="flex gap-8 mt-12 pt-8 border-t border-zinc-800/50">
+                <div className="flex gap-8 pt-8 border-t border-zinc-800/50">
                   {[
                     { value: "3", label: "Active Projects" },
                     { value: "6+", label: "Contributors" },
                     { value: "5", label: "Countries Reached" },
                   ].map((stat) => (
-                    <div key={stat.label}>
-                      <div className="text-2xl font-bold text-amber-400">
+                    <div key={stat.label} className="flex flex-col justify-start items-start">
+                      <h1 className="text-4xl font-bold text-amber-400 ">
                         {stat.value}
-                      </div>
+                      </h1>
                       <div className="text-xs text-zinc-600 mt-1">
                         {stat.label}
                       </div>
@@ -125,10 +125,10 @@ export default function HomePage() {
                       <Hand className="w-5 h-5 text-amber-400" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white">
+                      <div className="text-sm font-bold text-white text-left">
                         Hand Prosthetic v2
                       </div>
-                      <div className="text-xs text-zinc-500">
+                      <div className="text-xs text-zinc-500 text-left">
                         Currently in active development
                       </div>
                     </div>
