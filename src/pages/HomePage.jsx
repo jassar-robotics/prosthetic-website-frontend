@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -21,22 +22,147 @@ export default function HomePage() {
   const featuredProjects = projects.filter((p) => !p.is_hidden).slice(0, 3);
   const visibleContributors = getAllContributors().slice(0, 4);
 
+  // All visible projects to orbit around the center (cap at 8 so it doesn't get crowded)
+  const orbitProjects = projects.filter((p) => !p.is_hidden).slice(0, 8);
+
+  const heroRef = useRef(null);
+  const orbitSceneRef = useRef(null);
+  const parallaxRef = useRef(null);
+
+  const handleHeroMouseMove = (e) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    heroRef.current.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    heroRef.current.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
+  // Mouse parallax on orbit scene
+  useEffect(() => {
+    const scene = orbitSceneRef.current;
+    const parallax = parallaxRef.current;
+    if (!scene || !parallax) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let rafId = 0;
+
+    const onMove = (e) => {
+      const rect = scene.getBoundingClientRect();
+      mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    };
+    const onLeave = () => {
+      mouseX = 0;
+      mouseY = 0;
+    };
+    const animate = () => {
+      currentX += (mouseX - currentX) * 0.07;
+      currentY += (mouseY - currentY) * 0.07;
+      const moveX = currentX * 12;
+      const moveY = currentY * 10;
+      const rotX = currentY * -6;
+      const rotY = currentX * 6;
+      parallax.style.transform = `translate(${moveX}px, ${moveY}px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      rafId = requestAnimationFrame(animate);
+    };
+
+    scene.addEventListener("mousemove", onMove);
+    scene.addEventListener("mouseleave", onLeave);
+    rafId = requestAnimationFrame(animate);
+
+    return () => {
+      scene.removeEventListener("mousemove", onMove);
+      scene.removeEventListener("mouseleave", onLeave);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <div className="relative">
+      {/* Animations + 3D transforms */}
+      <style>{`
+        @keyframes orbit3D {
+          0%   { transform: rotateX(65deg) rotateZ(0deg); }
+          100% { transform: rotateX(65deg) rotateZ(360deg); }
+        }
+        @keyframes tileCounterSpin {
+          0%   { transform: rotateZ(0deg) rotateX(-65deg); }
+          100% { transform: rotateZ(-360deg) rotateX(-65deg); }
+        }
+        @keyframes ringPulse {
+          0%, 100% { opacity: .3;  transform: translate(-50%, -50%) scale(1); }
+          50%      { opacity: .06; transform: translate(-50%, -50%) scale(1.03); }
+        }
+        @keyframes profileGlow {
+          0%, 100% { opacity: .6; transform: scale(1); }
+          50%      { opacity: 1;  transform: scale(1.15); }
+        }
+        @keyframes orbitGlow {
+          0%, 100% { opacity: .5; transform: translate(-50%, -50%) scale(1); }
+          50%      { opacity: 1;  transform: translate(-50%, -50%) scale(1.12); }
+        }
+        .hero-orbit-scene { perspective: 900px; transform-style: preserve-3d; }
+        .hero-orbit-parallax { transform-style: preserve-3d; transition: transform .12s ease-out; }
+        .hero-orbit-track { transform-style: preserve-3d; animation: orbit3D 25s linear infinite; }
+        .orbit-tile { transform-style: preserve-3d; backface-visibility: hidden; }
+        .orbit-tile-inner { animation: tileCounterSpin 25s linear infinite; transform-style: preserve-3d; }
+        .ring-pulse-1 { animation: ringPulse 4s ease-in-out infinite; }
+        .ring-pulse-2 { animation: ringPulse 4s ease-in-out .8s infinite; }
+        .ring-pulse-3 { animation: ringPulse 4s ease-in-out 1.6s infinite; }
+        .profile-glow-anim { animation: profileGlow 4s ease-in-out infinite; }
+        .orbit-glow-anim   { animation: orbitGlow 5s ease-in-out infinite; }
+      `}</style>
+
       {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background layers */}
-        <div className="absolute inset-0 bg-zinc-950" />
+      <section
+        ref={heroRef}
+        onMouseMove={handleHeroMouseMove}
+        className="relative min-h-screen flex items-center overflow-hidden group/hero"
+      >
+        {/* Background video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/screen.mov"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/screen.mov" type="video/mp4" />
+          <source src="/screen.mov" type="video/webm" />
+        </video>
+
+        {/* Dark overlay for text contrast */}
+        <div className="absolute inset-0 bg-zinc-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/30 to-zinc-950" />
+
+        {/* Color glows on top of dimmed video */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(245,158,11,0.08)_0%,_transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(249,115,22,0.05)_0%,_transparent_60%)]" />
 
-        {/* Grid pattern */}
+        {/* Base grid - always visible, dim */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.2] transition-opacity duration-500"
           style={{
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
             backgroundSize: "64px 64px",
+          }}
+        />
+
+        {/* Spotlight grid - amber, revealed near cursor */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-0 group-hover/hero:opacity-100 transition-opacity duration-500"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(251,191,36,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.5) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+            WebkitMaskImage:
+              "radial-gradient(circle 220px at var(--mx, -200px) var(--my, -200px), black 0%, transparent 70%)",
+            maskImage:
+              "radial-gradient(circle 220px at var(--mx, -200px) var(--my, -200px), black 0%, transparent 70%)",
           }}
         />
 
@@ -48,7 +174,6 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text */}
             <div>
-
               <AnimatedSection delay={100}>
                 <h1 className=" font-liches text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 text-left">
                   A hand that{" "}
@@ -109,48 +234,140 @@ export default function HomePage() {
               </AnimatedSection>
             </div>
 
-            {/* Right: Visual */}
+            {/* Right: 3D ORBIT of projects */}
             <AnimatedSection delay={200} direction="left">
-              <div className="relative hidden lg:block">
-                <div className="relative rounded-3xl overflow-hidden border border-zinc-800/50 shadow-2xl shadow-black/40">
-                  <img
-                    src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
-                    alt="Prosthetic hand prototype"
-                    className="w-full aspect-[4/3] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+              <div className="relative hidden lg:flex items-center justify-center h-[600px]">
+                <div
+                  ref={orbitSceneRef}
+                  className="hero-orbit-scene relative w-[600px] h-[600px]"
+                >
+                  <div ref={parallaxRef} className="hero-orbit-parallax relative w-full h-full">
+                    {/* Glow behind orbit */}
+                    <div
+                      className="orbit-glow-anim absolute top-1/2 left-1/2 w-[480px] h-[480px] rounded-full pointer-events-none"
+                      style={{
+                        transform: "translate(-50%, -50%)",
+                        background:
+                          "radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%)",
+                        filter: "blur(60px)",
+                      }}
+                    />
 
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3 p-4 rounded-2xl bg-zinc-950/80 backdrop-blur-xl border border-zinc-800/50">
-                    <div className="w-10 h-10 rounded-xl bg-amber-400/10 flex items-center justify-center shrink-0">
-                      <Hand className="w-5 h-5 text-amber-400" />
+                    {/* Pulsing rings */}
+                    <div
+                      className="ring-pulse-1 absolute top-1/2 left-1/2 w-[420px] h-[420px] rounded-full border border-amber-500/10 pointer-events-none"
+                      style={{ transform: "translate(-50%, -50%)" }}
+                    />
+                    <div
+                      className="ring-pulse-2 absolute top-1/2 left-1/2 w-[510px] h-[510px] rounded-full border border-amber-500/10 pointer-events-none"
+                      style={{ transform: "translate(-50%, -50%)" }}
+                    />
+                    <div
+                      className="ring-pulse-3 absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full border border-amber-500/10 pointer-events-none"
+                      style={{ transform: "translate(-50%, -50%)" }}
+                    />
+
+                    {/* Orbit track with project tiles */}
+                    <div
+                      className="hero-orbit-track absolute top-1/2 left-1/2"
+                      style={{ width: 0, height: 0 }}
+                    >
+                      {orbitProjects.map((project, i) => {
+                        const angle = (360 / orbitProjects.length) * i;
+                        const radius = 260;
+                        // Adjust these field names if your project schema differs
+                        const img =
+                          project.image ||
+                          project.thumbnail ||
+                          project.cover_image ||
+                          "";
+                        const title =
+                          project.title || project.name || "Project";
+                        return (
+                          <Link
+                            key={project.id}
+                            to={`/projects`}
+                            className="orbit-tile group/tile absolute rounded-xl overflow-visible cursor-pointer border border-white/10 hover:border-amber-400/40 transition-all duration-300"
+                            style={{
+                              width: 110,
+                              height: 78,
+                              marginLeft: -55,
+                              marginTop: -39,
+                              transform: `rotateZ(${angle}deg) translateX(${radius}px)`,
+                              boxShadow: "0 10px 35px rgba(0,0,0,0.6)",
+                            }}
+                          >
+                            <div className="orbit-tile-inner w-full h-full overflow-hidden rounded-xl relative">
+                              {img ? (
+                                <img
+                                  src={img}
+                                  alt={title}
+                                  loading="lazy"
+                                  className="w-full h-full object-cover transition-all duration-300"
+                                  style={{ filter: "brightness(0.65) saturate(0.75)" }}
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
+                                  <Hand className="w-5 h-5 text-amber-400/50" />
+                                </div>
+                              )}
+                              <span
+                                className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-amber-400 whitespace-nowrap opacity-0 group-hover/tile:opacity-100 transition-opacity pointer-events-none"
+                                style={{ textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}
+                              >
+                                {title.split(" ").slice(0, 3).join(" ")}
+                              </span>
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
-                    <div>
-                      <div className="text-sm font-bold text-white text-left">
-                        Hand Prosthetic v2
-                      </div>
-                      <div className="text-xs text-zinc-500 text-left">
-                        Currently in active development
-                      </div>
+
+                    {/* Profile (center) */}
+                    <div
+                      className="absolute top-1/2 left-1/2 z-10 w-[300px] h-[300px] rounded-full overflow-hidden border border-amber-500/20"
+                      style={{
+                        transform: "translate(-50%, -50%)",
+                        boxShadow:
+                          "0 8px 30px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.1)",
+                      }}
+                    >
+                      <div
+                        className="profile-glow-anim absolute -inset-12 rounded-full pointer-events-none"
+                        style={{
+                          background:
+                            "radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%)",
+                          zIndex: -1,
+                        }}
+                      />
+                      <img
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
+                        alt="Prosthetic hand prototype"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <span className="ml-auto flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                     
-                      ONGOING
-                    </span>
                   </div>
-                </div>
 
-                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-2xl border border-amber-500/10 rotate-12" />
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-xl bg-amber-500/5 border border-amber-500/10" />
+                  {/* Shadow ellipse under orbit for depth */}
+                  <div
+                    className="absolute bottom-12 left-1/2 w-[400px] h-[50px] rounded-full pointer-events-none"
+                    style={{
+                      transform: "translateX(-50%)",
+                      background:
+                        "radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%)",
+                      filter: "blur(12px)",
+                    }}
+                  />
+                </div>
               </div>
             </AnimatedSection>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-xs text-zinc-600 uppercase tracking-widest">Scroll</span>
+        <div className="absolute bottom-8 right-0 -translate-x-1/2 flex flex-col items-center gap-2">
           <div className="w-5 h-8 rounded-full border-2 border-zinc-700 flex justify-center pt-1.5">
-            <div className="w-1 h-2 rounded-full bg-amber-400 animate-bounce" />
+            <div className="w-1 h-2 rounded-full bg-slate-400 animate-bounce" />
           </div>
         </div>
       </section>

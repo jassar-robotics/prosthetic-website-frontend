@@ -36,7 +36,7 @@ export default function Footer() {
               <Link to="/contributors" className="block text-sm text-zinc-500 hover:text-amber-400 transition-colors">
                 Contributors
               </Link>
-              <a href="https://github.com/openhand" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-zinc-500 hover:text-amber-400 transition-colors">
+              <a href="https://github.com/OpenClaw" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-zinc-500 hover:text-amber-400 transition-colors">
                 <Github className="w-3.5 h-3.5" /> GitHub
               </a>
             </div>
@@ -76,7 +76,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-zinc-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-zinc-600">
-            © {new Date().getFullYear()} OpenHand Project. Open source under MIT License.
+            © {new Date().getFullYear()} OpenClaw Project. Open source under MIT License.
           </p>
         </div>
       </div>

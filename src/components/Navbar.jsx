@@ -41,7 +41,7 @@ export default function Navbar() {
               <Hand className="w-5 h-5 text-zinc-950" strokeWidth={2.5} />
             </div>
             <span className="text-xl font-bold tracking-tight text-white">
-              Open<span className="text-amber-400">Hand</span>
+              Open<span className="text-amber-400">Claw</span>
             </span>
           </Link>
 

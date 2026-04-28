@@ -1,4 +1,4 @@
-# OpenHand Frontend - Setup Guide
+# OpenClaw Frontend - Setup Guide
 
 ## File Placement
 

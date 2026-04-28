@@ -41,14 +41,14 @@ export default function ContactUsPage() {
               {
                 icon: Mail,
                 title: "Email",
-                value: "hello@openhand.org",
-                href: "mailto:hello@openhand.org",
+                value: "hello@OpenClaw.org",
+                href: "mailto:hello@OpenClaw.org",
               },
               {
                 icon: Github,
                 title: "GitHub",
-                value: "github.com/openhand",
-                href: "https://github.com/openhand",
+                value: "github.com/OpenClaw",
+                href: "https://github.com/OpenClaw",
               },
               {
                 icon: MapPin,

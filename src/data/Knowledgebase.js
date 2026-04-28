@@ -1,17 +1,17 @@
-// OpenHand AI Knowledge Base
+// OpenClaw AI Knowledge Base
 // Used by the local chatbot to answer questions about the project
 
 const knowledgeBase = [
   // === GENERAL / OVERVIEW ===
   {
-    keywords: ["what", "openhand", "about", "project", "what is", "tell me"],
+    keywords: ["what", "OpenClaw", "about", "project", "what is", "tell me"],
     answer:
-      "OpenHand is an open-source prosthetic hand project. We design, build, and document modular prosthetic hands that anyone can manufacture using a 3D printer and commonly available electronic components. Our designs are fully open - CAD files, firmware, assembly guides, and BOMs are all published on GitHub.",
+      "OpenClaw is an open-source prosthetic hand project. We design, build, and document modular prosthetic hands that anyone can manufacture using a 3D printer and commonly available electronic components. Our designs are fully open - CAD files, firmware, assembly guides, and BOMs are all published on GitHub.",
   },
   {
     keywords: ["who", "behind", "team", "founders", "created", "started", "made"],
     answer:
-      "OpenHand is built by a global community of engineers, designers, makers, and families. Our core team includes biomedical engineers, firmware developers, mechanical designers, and technical writers spread across multiple continents. You can meet them on our About page.",
+      "OpenClaw is built by a global community of engineers, designers, makers, and families. Our core team includes biomedical engineers, firmware developers, mechanical designers, and technical writers spread across multiple continents. You can meet them on our About page.",
   },
   {
     keywords: ["mission", "goal", "purpose", "why", "exist"],
@@ -21,7 +21,7 @@ const knowledgeBase = [
   {
     keywords: ["open source", "license", "free", "cost", "price"],
     answer:
-      "Yes, OpenHand is completely open source. All designs, code, and documentation are freely available on GitHub. There are no licensing fees. The only costs involved are the materials to build a hand - typically under $50–100 for parts and filament depending on your location.",
+      "Yes, OpenClaw is completely open source. All designs, code, and documentation are freely available on GitHub. There are no licensing fees. The only costs involved are the materials to build a hand - typically under $50–100 for parts and filament depending on your location.",
   },
   {
     keywords: ["philosophy", "believe", "values", "principles"],
@@ -53,12 +53,12 @@ const knowledgeBase = [
   {
     keywords: ["thumb", "module", "adaptive"],
     answer:
-      "The Adaptive Thumb Module is a standalone opposable thumb with a ball-and-socket joint and independent servo actuation. It's designed to snap into the OpenHand v2 palm or work as a retrofit for other prosthetic platforms. Currently ongoing at v0.8.0.",
+      "The Adaptive Thumb Module is a standalone opposable thumb with a ball-and-socket joint and independent servo actuation. It's designed to snap into the OpenClaw v2 palm or work as a retrofit for other prosthetic platforms. Currently ongoing at v0.8.0.",
   },
   {
     keywords: ["wrist", "rotation", "unit"],
     answer:
-      "The Wrist Rotation Unit is a compact powered module using a worm gear mechanism providing 180° pronation/supination with position feedback. It's a completed project (v1.2.0) compatible with the OpenHand v2 socket.",
+      "The Wrist Rotation Unit is a compact powered module using a worm gear mechanism providing 180° pronation/supination with position feedback. It's a completed project (v1.2.0) compatible with the OpenClaw v2 socket.",
   },
   {
     keywords: ["socket", "child", "size", "parametric"],
@@ -68,12 +68,12 @@ const knowledgeBase = [
   {
     keywords: ["emg", "calibration", "app", "mobile", "bluetooth"],
     answer:
-      "The EMG Calibration App is a cross-platform mobile app (React Native) that connects via BLE to the OpenHand control board. It lets users calibrate EMG thresholds, adjust grip patterns, and run diagnostics without a laptop. Currently at v0.3.0.",
+      "The EMG Calibration App is a cross-platform mobile app (React Native) that connects via BLE to the OpenClaw control board. It lets users calibrate EMG thresholds, adjust grip patterns, and run diagnostics without a laptop. Currently at v0.3.0.",
   },
   {
     keywords: ["print", "profile", "slicer", "3d print", "settings"],
     answer:
-      "The 3D Print Profile Library contains tested and validated slicer profiles for all OpenHand parts across popular printers (Ender 3, Prusa i3, Bambu A1). Includes settings for PLA, PETG, and TPU. It's a completed project at v2.0.0 - just hit print and it works.",
+      "The 3D Print Profile Library contains tested and validated slicer profiles for all OpenClaw parts across popular printers (Ender 3, Prusa i3, Bambu A1). Includes settings for PLA, PETG, and TPU. It's a completed project at v2.0.0 - just hit print and it works.",
   },
   {
     keywords: ["myoelectric", "training", "kit", "education"],
@@ -85,7 +85,7 @@ const knowledgeBase = [
   {
     keywords: ["build", "make", "how to", "start", "begin", "get started", "maker"],
     answer:
-      "To build an OpenHand: 1) Go to the Projects page and click 'I'm a Maker'. 2) Pick a project that interests you (ongoing or final status). 3) Check the Assembly tab for step-by-step instructions. 4) Download files from the Resources repo. 5) Gather parts from the BOM tab. 6) Watch the video walkthrough. Most builds take a weekend with a 3D printer.",
+      "To build an OpenClaw: 1) Go to the Projects page and click 'I'm a Maker'. 2) Pick a project that interests you (ongoing or final status). 3) Check the Assembly tab for step-by-step instructions. 4) Download files from the Resources repo. 5) Gather parts from the BOM tab. 6) Watch the video walkthrough. Most builds take a weekend with a 3D printer.",
   },
   {
     keywords: ["printer", "3d", "which", "recommend", "need"],
@@ -144,7 +144,7 @@ const knowledgeBase = [
   {
     keywords: ["emg", "sensor", "muscle", "signal", "gesture"],
     answer:
-      "EMG (Electromyography) sensors detect electrical signals from muscle contractions in the residual limb. The OpenHand uses two analog EMG sensor modules (0–5V output) placed on the forearm to detect grip and release gestures. Thresholds are calibrated through the mobile app.",
+      "EMG (Electromyography) sensors detect electrical signals from muscle contractions in the residual limb. The OpenClaw uses two analog EMG sensor modules (0–5V output) placed on the forearm to detect grip and release gestures. Thresholds are calibrated through the mobile app.",
   },
   {
     keywords: ["servo", "motor", "actuator", "finger"],
@@ -161,12 +161,12 @@ const knowledgeBase = [
   {
     keywords: ["safe", "safety", "medical", "certified", "fda", "clinical"],
     answer:
-      "Important: OpenHand is an open hardware project in active development - it is NOT a certified medical device. It has not been evaluated or approved by the FDA or any medical regulatory body. Any clinical use should be done under the supervision of qualified healthcare professionals. We are honest about our limits.",
+      "Important: OpenClaw is an open hardware project in active development - it is NOT a certified medical device. It has not been evaluated or approved by the FDA or any medical regulatory body. Any clinical use should be done under the supervision of qualified healthcare professionals. We are honest about our limits.",
   },
   {
     keywords: ["disclaimer", "risk", "liability", "legal"],
     answer:
-      "OpenHand provides designs and documentation as-is, without warranty. Users build and use devices at their own risk. We strongly recommend consulting with occupational therapists and medical professionals before fitting any prosthetic device, especially for children. See our Policies page for the full medical disclaimer.",
+      "OpenClaw provides designs and documentation as-is, without warranty. Users build and use devices at their own risk. We strongly recommend consulting with occupational therapists and medical professionals before fitting any prosthetic device, especially for children. See our Policies page for the full medical disclaimer.",
   },
 
   // === COMMUNITY ===
@@ -190,17 +190,17 @@ const knowledgeBase = [
   {
     keywords: ["hello", "hi", "hey", "greetings", "sup"],
     answer:
-      "Hey there! 👋 I'm the OpenHand assistant. I can answer questions about our prosthetic projects, how to build or contribute, technical specs, and more. What would you like to know?",
+      "Hey there! 👋 I'm the OpenClaw assistant. I can answer questions about our prosthetic projects, how to build or contribute, technical specs, and more. What would you like to know?",
   },
   {
     keywords: ["thanks", "thank you", "helpful", "great", "awesome", "cool"],
     answer:
-      "Happy to help! If you have more questions about OpenHand, feel free to ask. You can also explore our Projects page to dive deeper into any specific project.",
+      "Happy to help! If you have more questions about OpenClaw, feel free to ask. You can also explore our Projects page to dive deeper into any specific project.",
   },
   {
     keywords: ["bye", "goodbye", "see you", "later"],
     answer:
-      "See you around! Remember - whether you're a maker or a contributor, there's a place for you in the OpenHand community. Come build something meaningful. ✌️",
+      "See you around! Remember - whether you're a maker or a contributor, there's a place for you in the OpenClaw community. Come build something meaningful. ✌️",
   },
 ];
 
@@ -234,12 +234,12 @@ export function getAnswer(query) {
     return bestAnswer;
   }
 
-  return "That's a great question! I don't have a specific answer for that yet, but you can find detailed information on our Projects page, or reach out to the team through the Contact page. Is there anything else about OpenHand I can help with?";
+  return "That's a great question! I don't have a specific answer for that yet, but you can find detailed information on our Projects page, or reach out to the team through the Contact page. Is there anything else about OpenClaw I can help with?";
 }
 
 // Suggested questions for the chat landing
 export const suggestedQuestions = [
-  "What is OpenHand?",
+  "What is OpenClaw?",
   "How do I build a prosthetic hand?",
   "What parts do I need?",
   "How can I contribute?",
