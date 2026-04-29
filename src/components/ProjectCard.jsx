@@ -4,7 +4,7 @@ import StatusBadge from "./StatusBadge";
 
 export default function ProjectCard({ project, index = 0, linkTo }) {
   // Default link: bridge page (no view param)
-  const to = linkTo || `/projects/${project.B}`;
+  const to = linkTo || `/projects/${project.id}`;
 
   return (
     <Link

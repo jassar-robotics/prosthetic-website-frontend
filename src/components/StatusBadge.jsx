@@ -1,31 +1,31 @@
 const statusConfig = {
   UPCOMING: {
-    bg: "bg-blue-500/10 ",
-    text: "text-blue-400",
+    bg: "bg-blue-500/40 ",
+    text: "text-white",
   },
   ONGOING: {
-    bg: "bg-amber-500/10",
-    text: "text-amber-400",
+    bg: "bg-amber-500/40",
+    text: "text-white",
   },
   FINAL: {
-    bg: "bg-emerald-500/10",
-    text: "text-emerald-400",
+    bg: "bg-emerald-500/40",
+    text: "text-white",
   },
   TODO: {
-    bg: "bg-zinc-500/10",
-    text: "text-zinc-400",
+    bg: "bg-zinc-500/40",
+    text: "text-white",
   },
   TESTING: {
-    bg: "bg-purple-500/10 ",
-    text: "text-purple-400",
+    bg: "bg-purple-500/40 ",
+    text: "text-white",
   },
   REVIEW: {
-    bg: "bg-orange-500/10",
-    text: "text-orange-400",
+    bg: "bg-orange-500/40",
+    text: "text-white",
   },
   ACCEPTED: {
-    bg: "bg-emerald-500/10 ",
-    text: "text-emerald-400",
+    bg: "bg-emerald-500/40 ",
+    text: "text-white",
   },
 };
 
