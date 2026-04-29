@@ -35,7 +35,6 @@ export default function PoliciesPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.06)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Legal"
             title="Policies & Conditions"
             description="Transparency is a design principle. Here's how we handle licensing, data, contributions, and community standards."
           />

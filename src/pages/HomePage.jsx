@@ -377,7 +377,6 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.03)_0%,_transparent_70%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Why We Build"
             title="Not a product. A shared process."
             description="Many prosthetic hands are expensive, hard to repair, and slow to update. Kids outgrow fittings quickly. We believe assistive technology should be accessible, repairable, and community-driven."
           />
