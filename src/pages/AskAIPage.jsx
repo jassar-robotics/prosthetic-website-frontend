@@ -77,7 +77,7 @@ export default function AskAIPage() {
               <Lottie animationData={AiBotAnimation} className="w-full h-full" loop={true} />
             </div>
               <div>
-                <span className="text-sm font-bold text-white">OpenClaw AI</span>
+                <span className="text-sm font-bold text-white">OpenHand AI</span>
                 <span className="flex items-center gap-1 text-[10px] text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   Online
@@ -116,7 +116,7 @@ export default function AskAIPage() {
               <h1 className="text-2xl sm:text-3xl font-bold text-white mb-3 text-center">
                 Ask anything about{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
-                  OpenClaw
+                  OpenHand
                 </span>
               </h1>
               <p className="text-sm text-zinc-500 mb-10 text-center max-w-md">
@@ -224,7 +224,7 @@ export default function AskAIPage() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 rows={1}
-                placeholder="Ask about OpenClaw..."
+                placeholder="Ask about OpenHand..."
                 className="w-full px-4 py-3 pr-12 rounded-2xl bg-zinc-900 border border-zinc-800 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/20 transition-all resize-none"
                 style={{
                   minHeight: "48px",

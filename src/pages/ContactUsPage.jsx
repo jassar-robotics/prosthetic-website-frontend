@@ -26,7 +26,6 @@ export default function ContactUsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.06)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Contact"
             title="Let's talk."
             description="Have a question, want to contribute, or interested in sponsoring? We'd love to hear from you."
           />
@@ -41,14 +40,14 @@ export default function ContactUsPage() {
               {
                 icon: Mail,
                 title: "Email",
-                value: "hello@OpenClaw.org",
-                href: "mailto:hello@OpenClaw.org",
+                value: "hello@OpenHand.org",
+                href: "mailto:hello@OpenHand.org",
               },
               {
                 icon: Github,
                 title: "GitHub",
-                value: "github.com/OpenClaw",
-                href: "https://github.com/OpenClaw",
+                value: "github.com/OpenHand",
+                href: "https://github.com/OpenHand",
               },
               {
                 icon: MapPin,
@@ -175,7 +174,7 @@ export default function ContactUsPage() {
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 font-bold rounded-xl hover:shadow-xl hover:shadow-amber-500/20 active:scale-[0.98] transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400  text-zinc-950 font-bold rounded-xl hover:shadow-xl hover:shadow-amber-500/20 active:scale-[0.98] transition-all duration-300"
               >
                 <Send className="w-4 h-4" />
                 Send Message

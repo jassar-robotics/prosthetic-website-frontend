@@ -56,9 +56,9 @@ export default function ProjectCard({ project, index = 0, linkTo }) {
               <GitBranch className="w-3 h-3" /> Source Available
             </span>
           )}
-          {project.whichHand && (
+          {project.whichSide && (
             <span className="px-2 py-0.5 bg-zinc-800 rounded text-zinc-500">
-              {project.whichHand} hand
+              {project.whichSide} hand
             </span>
           )}
         </div>

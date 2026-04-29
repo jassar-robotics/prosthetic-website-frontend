@@ -174,8 +174,8 @@ export default function ContributorProfilePage() {
         {/* ===== PROJECTS ===== */}
         <section>
           <AnimatedSection>
-            <h2 className="text-xl font-bold text-white mb-2">Projects</h2>
-            <p className="text-sm text-zinc-500 mb-6">
+            <h2 className="text-xl font-bold text-white mb-2 text-left">Projects</h2>
+            <p className="text-sm text-zinc-500 mb-6 text-left">
               Projects {contributor.fullName.split(" ")[0]} has contributed to.
             </p>
           </AnimatedSection>
@@ -217,10 +217,10 @@ export default function ContributorProfilePage() {
         {/* ===== THANK YOU NOTES + FORM ===== */}
         <section>
           <AnimatedSection>
-            <h2 className="text-xl font-bold text-white mb-2">
+            <h2 className="text-xl font-bold text-white mb-2 text-left">
               Thank You Wall
             </h2>
-            <p className="text-sm text-zinc-500 mb-8">
+            <p className="text-sm text-zinc-500 mb-8 text-left">
               Anonymous notes of appreciation from the community. Reviewed by the core team before publishing.
             </p>
           </AnimatedSection>

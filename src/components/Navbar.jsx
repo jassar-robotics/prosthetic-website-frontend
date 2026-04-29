@@ -37,11 +37,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/25 group-hover:shadow-amber-500/40 transition-shadow duration-300">
-              <Hand className="w-5 h-5 text-zinc-950" strokeWidth={2.5} />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white">
-              Open<span className="text-amber-400">Claw</span>
+            
+            <span className="text-2xl font-bold text-white font-liches">
+              Open<span className="text-amber-400 font-liches">{" "+"Hand"}</span>
             </span>
           </Link>
 

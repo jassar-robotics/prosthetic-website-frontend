@@ -304,10 +304,10 @@ function ProjectDetail({ project, viewMode }) {
 
             {/* Perspective badge */}
             <div
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold border ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold  ${
                 isMaker
-                  ? "bg-amber-400/10 border-amber-400/20 text-amber-400"
-                  : "bg-emerald-400/10 border-emerald-400/20 text-emerald-400"
+                  ? "bg-amber-400/10 text-amber-400"
+                  : "bg-emerald-400/10  text-emerald-400"
               }`}
             >
               {isMaker ? (
@@ -339,9 +339,9 @@ function ProjectDetail({ project, viewMode }) {
               <div className="flex items-center gap-3 mb-4">
                 <StatusBadge status={project.status} />
                 <span className="text-xs font-mono text-zinc-600">v{project.version}</span>
-                {project.whichHand && (
+                {project.whichSide && (
                   <span className="text-xs text-zinc-600 bg-zinc-900 px-2 py-1 rounded-md border border-zinc-800">
-                    {project.whichHand} hand
+                    {project.whichSide} SIDE
                   </span>
                 )}
               </div>
@@ -356,7 +356,7 @@ function ProjectDetail({ project, viewMode }) {
               />
 
               {project.vision && (
-                <div className="p-4 rounded-xl bg-amber-400/5 border border-amber-400/10 mb-6">
+                <div className="p-4 rounded-xl bg-amber-400/5  border-amber-400/10 mb-6">
                   <div className="flex items-center gap-2 mb-2">
                     <Lightbulb className="w-4 h-4 text-amber-400" />
                     <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
@@ -376,13 +376,13 @@ function ProjectDetail({ project, viewMode }) {
                     {/* Maker: production resources repo + video */}
                     {project.production_repo && (
                       <a href={project.production_repo} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900 border border-zinc-800 text-white rounded-xl hover:border-zinc-700 transition-all">
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900  border-zinc-800 text-white rounded-xl hover:border-zinc-700 transition-all">
                         <Download className="w-4 h-4" /> Resources
                       </a>
                     )}
                     {project.video && (
                       <a href={project.video} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-amber-400/10 border border-amber-400/20 text-amber-400 rounded-xl hover:bg-amber-400/15 transition-all">
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-amber-400/10  border-amber-400/20 text-amber-400 rounded-xl hover:bg-amber-400/15 transition-all">
                         <Play className="w-4 h-4" /> Watch Video
                       </a>
                     )}
@@ -392,25 +392,25 @@ function ProjectDetail({ project, viewMode }) {
                     {/* Contributor: software, mechanical, electrical repos + video */}
                     {project.software_githubLink && (
                       <a href={project.software_githubLink} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900 border border-zinc-800 text-white rounded-xl hover:border-zinc-700 transition-all">
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900  text-white rounded-xl hover:border-zinc-700 transition-all">
                         <Code className="w-4 h-4" /> Software Repo
                       </a>
                     )}
                     {project.mechanical_github_repo && (
                       <a href={project.mechanical_github_repo} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900 border border-zinc-800 text-white rounded-xl hover:border-zinc-700 transition-all">
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900  text-white rounded-xl hover:border-zinc-700 transition-all">
                         <Wrench className="w-4 h-4" /> Mechanical Repo
                       </a>
                     )}
                     {project.electrical_github_repo && (
                       <a href={project.electrical_github_repo} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900 border border-zinc-800 text-white rounded-xl hover:border-zinc-700 transition-all">
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-zinc-900  text-white rounded-xl hover:border-zinc-700 transition-all">
                         <Cpu className="w-4 h-4" /> Electrical Repo
                       </a>
                     )}
                     {project.video && (
                       <a href={project.video} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-amber-400/10 border border-amber-400/20 text-amber-400 rounded-xl hover:bg-amber-400/15 transition-all">
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-amber-400/10   text-amber-400 rounded-xl hover:bg-amber-400/15 transition-all">
                         <Play className="w-4 h-4" /> Watch Video
                       </a>
                     )}
@@ -449,7 +449,7 @@ function ProjectDetail({ project, viewMode }) {
                   onClick={() => { setActiveTab(tab.id); setLightboxIndex(null); }}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-300 text-left ${
                     isActive
-                      ? "bg-amber-400/10 text-amber-400 border border-amber-400/20"
+                      ? "bg-amber-400/10 text-amber-400 "
                       : "text-zinc-500 hover:text-white hover:bg-zinc-900"
                   }`}
                 >

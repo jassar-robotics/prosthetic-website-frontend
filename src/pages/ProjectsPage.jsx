@@ -42,7 +42,6 @@ export default function ProjectsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.06)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label={isMakerEntry ? "I'm a Maker" : "Projects"}
             title={isMakerEntry ? "Find a project to build." : "Explore our projects."}
             description={
               isMakerEntry
@@ -51,19 +50,18 @@ export default function ProjectsPage() {
             }
           />
 
-          {/* Maker mode indicator */}
+          {/* Maker mode indicator
           {isMakerEntry && (
             <AnimatedSection delay={200}>
               <div className="flex justify-center mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20">
-                  <span className="w-2 h-2 rounded-full bg-amber-400" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/10 border-amber-400/20">
                   <span className="text-xs font-semibold text-amber-400">
                     Maker Mode - Only buildable projects shown
                   </span>
                 </div>
               </div>
             </AnimatedSection>
-          )}
+          )} */}
 
           {/* Filter tabs */}
           <AnimatedSection delay={250}>
@@ -75,7 +73,7 @@ export default function ProjectsPage() {
                   className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     activeFilter === status
                       ? "bg-amber-400 text-zinc-950 shadow-lg shadow-amber-500/20"
-                      : "bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-zinc-700 hover:text-white"
+                      : "bg-zinc-900 text-zinc-400  hover:text-white"
                   }`}
                 >
                   {status === "ALL" ? "All Projects" : status}

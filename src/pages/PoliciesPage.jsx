@@ -63,10 +63,10 @@ export default function PoliciesPage() {
             Last updated: February 2026. For questions about these policies,
             contact us at{" "}
             <a
-              href="mailto:legal@OpenClaw.org"
+              href="mailto:legal@OpenHand.org"
               className="text-amber-400 hover:underline"
             >
-              legal@OpenClaw.org
+              legal@OpenHand.org
             </a>
           </p>
         </AnimatedSection>

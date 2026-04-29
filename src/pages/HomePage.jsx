@@ -127,11 +127,11 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          poster="/screen.mov"
+          poster="/screen.png"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/screen.mov" type="video/mp4" />
-          <source src="/screen.mov" type="video/webm" />
+          <source src="/screen.mp4" type="video/mp4" />
+          <source src="/screen.mp4" type="video/webm" />
         </video>
 
         {/* Dark overlay for text contrast */}
@@ -175,13 +175,13 @@ export default function HomePage() {
             {/* Left: Text */}
             <div>
               <AnimatedSection delay={100}>
-                <h1 className=" font-liches text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 text-left">
-                  A hand that{" "}
+                <h1 className=" font-liches text-5xl sm:text-6xl lg:text-7xl tracking-normal font-bold text-white leading-[1.05]  mb-6 text-left">
+                  Prosthetic that{" "}
                   <span className="relative">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400  font-liches">
+                    <span className="relative z-10 text-transparent bg-clip-text bg-amber-300  to-orange-400  font-liches">
                       grows
                     </span>
-                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-amber-400/10 rounded-full -z-0  font-liches" />
+                    <span className="absolute bottom-1 left-0 right-0 h-3 bg-amber-400/50 rounded-full -z-0  font-liches" />
                   </span>{" "}
                   with you.
                 </h1>
@@ -199,7 +199,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap gap-4">
                   <Link
                     to="/projects"
-                    className="group inline-flex items-center gap-3 px-7 py-4 bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 font-bold rounded-2xl hover:shadow-2xl hover:shadow-amber-500/25 active:scale-[0.98] transition-all duration-300"
+                    className="group inline-flex items-center gap-3 px-7 py-4 bg-amber-400  text-zinc-950 font-bold rounded-2xl hover:shadow-2xl hover:shadow-amber-500/25 active:scale-[0.98] transition-all duration-300"
                   >
                     I want to build
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -445,7 +445,6 @@ export default function HomePage() {
       <section className="relative py-24 md:py-32 bg-zinc-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Get Involved"
             title="Two paths, one mission."
             description="Whether you want to build a hand or help improve the design, there's a place for you here."
           />
@@ -538,7 +537,6 @@ export default function HomePage() {
       <section className="relative py-24 md:py-32 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Projects"
             title="What we're building."
             description="Every project is documented from concept to completion. Pick one, dive in, and start making."
           />
@@ -569,7 +567,6 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(245,158,11,0.04)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Impact"
             title="Real stories. Real hands."
             description="These aren't marketing testimonials - they're documented cases of how open-source prosthetics change lives."
           />
@@ -584,11 +581,11 @@ export default function HomePage() {
                       {story.country}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">
+                  <h3 className="text-lg font-bold text-white mb-3 text-left">
                     {story.name}
                   </h3>
                   <div
-                    className="text-sm text-zinc-500 leading-relaxed"
+                    className="text-sm text-zinc-500 leading-relaxed text-left"
                     dangerouslySetInnerHTML={{
                       __html: story.story?.replace(/<[^>]*>/g, "") || "",
                     }}
@@ -604,7 +601,6 @@ export default function HomePage() {
       <section className="relative py-24 md:py-32 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="People"
             title="Built by many."
             description="Open-source means open contribution. Meet some of the people shaping this project."
           />
@@ -634,11 +630,7 @@ export default function HomePage() {
       <section className="relative py-24 md:py-32 bg-zinc-900/30 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(245,158,11,0.08)_0%,_transparent_50%)]" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mx-auto mb-8 shadow-xl shadow-amber-500/20">
-              <Heart className="w-8 h-8 text-zinc-950" />
-            </div>
-          </AnimatedSection>
+          
           <AnimatedSection delay={100}>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Every contribution matters.
@@ -655,7 +647,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-7 py-4 bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 font-bold rounded-2xl hover:shadow-2xl hover:shadow-amber-500/25 active:scale-[0.98] transition-all duration-300"
+                className="inline-flex items-center gap-3 px-7 py-4 bg-amber-400 text-zinc-950 font-bold rounded-2xl hover:shadow-2xl hover:shadow-amber-500/25 active:scale-[0.98] transition-all duration-300"
               >
                 Get in touch
               </Link>

@@ -31,7 +31,6 @@ export default function AboutUsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(245,158,11,0.06)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="About Us"
             title="Why we exist."
             description="We're not a company. We're a group of engineers, designers, makers, and families who believe assistive technology should be open, repairable, and accessible to everyone."
           />
@@ -53,7 +52,7 @@ export default function AboutUsPage() {
 
           <AnimatedSection delay={150}>
             <div className="flex flex-col ">
-              <span className="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-6 text-left w-fit">
+              <span className="inline-block  py-1.5 text-xs font-semibold uppercase tracking-[0.2em]  text-amber-400  mb-6 text-left w-fit">
                 Our Mission
               </span>
               <h2 className="text-3xl font-bold text-white mb-6 leading-tight text-left">
@@ -76,7 +75,6 @@ export default function AboutUsPage() {
       <section className="bg-zinc-900/30 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Design Principles"
             title="How we make decisions."
             description="Every design choice is guided by these principles. They're non-negotiable."
           />
@@ -144,7 +142,6 @@ export default function AboutUsPage() {
       <section id="philosophy" className="py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Philosophy"
             title="What we believe in."
           />
 
@@ -292,7 +289,6 @@ export default function AboutUsPage() {
       <section className="py-24 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Core Team"
             title="The people driving this forward."
             description="A small, dedicated team working across continents to make open-source prosthetics a reality."
           />
@@ -388,7 +384,7 @@ export default function AboutUsPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-orange-500 text-zinc-950 font-bold rounded-xl hover:shadow-xl hover:shadow-amber-500/20 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 bg--400  text-zinc-950 font-bold rounded-xl hover:shadow-xl hover:shadow-amber-500/20 transition-all"
               >
                 See Projects <ArrowRight className="w-4 h-4" />
               </Link>

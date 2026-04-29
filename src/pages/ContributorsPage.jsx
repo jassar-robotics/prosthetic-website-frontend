@@ -52,7 +52,6 @@ export default function ContributorsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(245,158,11,0.06)_0%,_transparent_60%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="Contributors"
             title="The people behind the hand."
             description="Every improvement, every fix, every page of documentation - made by someone who cared enough to contribute."
           />
@@ -128,7 +127,6 @@ export default function ContributorsPage() {
       {/* ===== PROJECT LISTING (Contributor perspective) ===== */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <SectionHeader
-          label="Contribute To"
           title="Pick a project to contribute."
           description="Choose a project below to view its status board, tasks, repos, and where help is needed. You'll enter directly in contributor mode."
         />
@@ -162,9 +160,9 @@ export default function ContributorsPage() {
                             <span className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">
                               {project.name}
                             </span>
-                            {project.whichHand && (
+                            {project.whichSide && (
                               <span className="ml-2 text-[10px] text-zinc-600 bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">
-                                {project.whichHand}
+                                {project.whichSide}
                               </span>
                             )}
                           </div>
@@ -217,7 +215,6 @@ export default function ContributorsPage() {
       {/* ===== CONTRIBUTOR LIST ===== */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <SectionHeader
-          label="Our Contributors"
           title="Meet the team."
           description="People from around the world contributing their skills to make prosthetics accessible."
         />

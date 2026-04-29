@@ -1,30 +1,30 @@
 const statusConfig = {
   UPCOMING: {
-    bg: "bg-blue-500/10 border-blue-500/20",
+    bg: "bg-blue-500/10 ",
     text: "text-blue-400",
   },
   ONGOING: {
-    bg: "bg-amber-500/10 border-amber-500/20",
+    bg: "bg-amber-500/10",
     text: "text-amber-400",
   },
   FINAL: {
-    bg: "bg-emerald-500/10 border-emerald-500/20",
+    bg: "bg-emerald-500/10",
     text: "text-emerald-400",
   },
   TODO: {
-    bg: "bg-zinc-500/10 border-zinc-500/20",
+    bg: "bg-zinc-500/10",
     text: "text-zinc-400",
   },
   TESTING: {
-    bg: "bg-purple-500/10 border-purple-500/20",
+    bg: "bg-purple-500/10 ",
     text: "text-purple-400",
   },
   REVIEW: {
-    bg: "bg-orange-500/10 border-orange-500/20",
+    bg: "bg-orange-500/10",
     text: "text-orange-400",
   },
   ACCEPTED: {
-    bg: "bg-emerald-500/10 border-emerald-500/20",
+    bg: "bg-emerald-500/10 ",
     text: "text-emerald-400",
   },
 };
@@ -34,7 +34,7 @@ export default function StatusBadge({ status }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border backdrop-blur-md ${config.bg} ${config.text}`}
+      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md ${config.bg} ${config.text}`}
     >
       {status}
     </span>
